@@ -6,10 +6,10 @@ module Refinery
         crudify :'refinery/faq/faq',
                 :xhr_paging => true
 
-        before_filter :find_all_categories,
+        before_action :find_all_categories,
                       :only => [:new, :edit, :create, :update]
 
-        before_filter :check_category_ids, :only => :update
+        before_action :check_category_ids, :only => :update
 
         def uncategorized
           @faqs = Refinery::Faq::Faq.uncategorized.page(params[:page])

@@ -8,13 +8,10 @@ module Refinery
 
       before_inclusion do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "faq"
+          plugin.name = "refinery_faq"
           plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.faq_admin_faqs_path }
           plugin.pathname = root
-          plugin.activity = {
-            :class_name => :'refinery/faq/faq'
-          }
-          
+          plugin.menu_match = %r{refinery/faq/faq}    
         end
       end
 

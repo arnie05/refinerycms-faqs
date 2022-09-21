@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary           = 'Faqs extension for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
-  s.authors           = %q{Arnaud Augier}
+  s.authors           = %q{Greendog - Arnaud Augier}
 
   # Runtime dependencies
   s.add_dependency    %q{refinerycms},       ['>= 3.0.0', '< 5.0']

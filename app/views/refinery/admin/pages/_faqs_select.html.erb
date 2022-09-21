@@ -1,0 +1,5 @@
+<div class='field'>
+  <%= f.label t('select_faq_ids') -%>
+  <%= f.collection_select :faq_ids, Refinery::Faq::Faq.all, :id, :title, {}, {:multiple => true} %>
+</div>  
+<br /> 

@@ -1,4 +1,4 @@
-class CreateFaqStructure < ActiveRecord::Migration
+class CreateFaqStructure < ActiveRecord::Migration[4.2]
 
   def up
     create_table :refinery_faqs do |t|

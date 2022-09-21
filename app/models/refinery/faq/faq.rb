@@ -14,6 +14,8 @@ module Refinery
       has_many :categorizations, :dependent => :destroy, :foreign_key => :faq_id
       has_many :categories, :through => :categorizations, :source => :faq_category,  :class_name => "Refinery::Faq::Category"
 
+      has_and_belongs_to_many :pages, :class_name => '::Refinery::Page', join_table: "refinery_pages_faqs"
+
 
       def newest_first
         order("published_at DESC")
