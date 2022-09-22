@@ -7,6 +7,7 @@
     <%= f.label :title -%>
     <%= f.text_field :title, :class => 'larger widest' -%>
   </div>
+  <br/>
 
   <div class='field'>
     <%= render '/refinery/admin/wysiwyg',
@@ -17,21 +18,24 @@
 
 
 
-    <div id='more_options'>
-      <h3><%= t('title', :scope => 'refinery.faq.admin.submenu.categories') %></h3>
-      <ul class='blog_categories'>
-        <% @categories.each do |category| %>
-            <li>
-              <%= check_box_tag 'faq[category_ids][]', category.id,
-                                @faq.categories.include?(category),
-                                :id => (id="faq_category_ids_#{category.id}") %>
-              <%= label_tag 'faq[category_ids][]', category.title,
-                            :class => 'stripped',
-                            :for => id %>
-            </li>
-        <% end %>
-      </ul>
-    </div>
+    <% if @categories.size > 0 %>
+      <div id='more_options'>
+        <h3><%= t('title', :scope => 'refinery.faq.admin.submenu.categories') %></h3>
+        <ul class='blog_categories'>
+          <% @categories.each do |category| %>
+              <li>
+                <%= check_box_tag 'faq[category_ids][]', category.id,
+                                  @faq.categories.include?(category),
+                                  :id => (id="faq_category_ids_#{category.id}") %>
+                <%= label_tag 'faq[category_ids][]', category.title,
+                              :class => 'stripped',
+                              :for => id %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <br/>
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
